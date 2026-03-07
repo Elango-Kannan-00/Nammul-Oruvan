@@ -1,0 +1,145 @@
+body {
+  font-family: "Inter";
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.login-page-title {
+  margin-top: 100px;
+  margin-bottom: -40px;
+  text-align: center;
+  color: #1e293b;
+  font-size: 70px;
+}
+
+.login-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.75rem;
+}
+
+.login-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.login-illustration {
+  width: min(80%, 520px);
+  height: auto;
+}
+
+.login-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.login-form-card {
+  width: min(100%, 300px);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+}
+
+.login-card-title {
+  margin: 0 0 1.25rem;
+  text-align: center;
+  color: #1e293b;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.login-form label {
+  color: #334155;
+  font-weight: 600;
+}
+
+.login-form input {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.login-form input:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #60a5fa;
+}
+
+.login-form button {
+  margin-top: 0.4rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #f97316;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.login-form button:hover {
+  filter: brightness(0.95);
+  transform: scale(1.03);
+}
+
+.login-form button:active {
+  transform: scale(1.06);
+}
+
+@media (max-width: 900px) {
+  .login-content {
+    grid-template-columns: 1fr;
+  }
+
+  .login-left {
+    padding-bottom: 0;
+  }
+
+  .login-right {
+    padding-top: 1rem;
+  }
+}
+
+.field-error {
+  margin: -0.35rem 0 0.4rem;
+  color: #dc2626;
+  font-size: 0.85rem;
+}
+
+.input-error {
+  border-color: #dc2626 !important;
+  outline: 2px solid #fecaca !important;
+}
+
+.text-link-btn {
+  margin-left: 0.35rem;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: inherit;
+  text-decoration: underline;
+  padding: 0;
+}
