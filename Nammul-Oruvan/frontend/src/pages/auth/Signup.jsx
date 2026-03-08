@@ -3,78 +3,102 @@ import "./Signup.css";
 import signupIllustration from "../../assets/illustrations/Signup.jpg";
 
 const Signup = ({ onSignupSuccess }) => {
-  const [formData, setFormData] = useState({
-    username: "",
-    phone: "",
-    location: "",
-    password: "",
-  });
+  // Form field states
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+  const [password, setPassword] = useState("");
+  // Validation error state
   const [errors, setErrors] = useState({});
 
-  const validate = (values) => {
+  // Handle username input change
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+    if (errors.username) setErrors((prev) => ({ ...prev, username: "" }));
+  };
+
+  // Handle phone input change
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+    if (errors.phone) setErrors((prev) => ({ ...prev, phone: "" }));
+  };
+
+  // Handle location input change
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+    if (errors.location) setErrors((prev) => ({ ...prev, location: "" }));
+  };
+
+  // Handle password input change
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+    if (errors.password) setErrors((prev) => ({ ...prev, password: "" }));
+  };
+
+  // Handle form submit and run simple validation
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const nextErrors = {};
 
-    if (!values.username.trim()) {
+    // Username validation block
+    if (!username.trim()) {
       nextErrors.username = "Username is required.";
-    } else if (values.username.trim().length < 3) {
+    } else if (username.trim().length < 3) {
       nextErrors.username = "Username must be at least 3 characters.";
     }
 
-    if (!values.phone.trim()) {
+    // Phone validation block
+    if (!phone.trim()) {
       nextErrors.phone = "Phone number is required.";
-    } else if (!/^\d{10}$/.test(values.phone.trim())) {
+    } else if (!/^\d{10}$/.test(phone.trim())) {
       nextErrors.phone = "Phone number must be exactly 10 digits.";
     }
 
-    if (!values.location.trim()) {
+    // Location validation block
+    if (!location.trim()) {
       nextErrors.location = "Location is required.";
-    } else if (values.location.trim().length < 2) {
+    } else if (location.trim().length < 2) {
       nextErrors.location = "Location must be at least 2 characters.";
     }
 
-    if (!values.password.trim()) {
+    // Password validation block
+    if (!password.trim()) {
       nextErrors.password = "Password is required.";
-    } else if (values.password.length < 8) {
+    } else if (password.length < 8) {
       nextErrors.password = "Password must be at least 8 characters.";
     }
 
-    return nextErrors;
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const nextErrors = validate(formData);
-    setErrors(nextErrors);
-
+    // Stop submit if validation fails
     if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
       return;
     }
 
+    // Clear errors and continue signup flow
+    setErrors({});
+
     // TODO: call signup API here.
+    
+    // Trigger success callback after valid submit
     if (onSignupSuccess) {
       onSignupSuccess();
     }
   };
 
+  // Signup page UI
   return (
     <div className="signup-page">
       <h1 className="signup-page-title">
         Create Account to Find Nammul-Oruvan
       </h1>
 
+      {/* Main content wrapper */}
       <div className="signup-content">
+        {/* Left form section */}
         <section className="signup-left">
           <div className="signup-form-card">
             <h2 className="signup-card-title">Signup</h2>
+            {/* Signup form block */}
             <form className="signup-form" onSubmit={handleSubmit}>
               <label htmlFor="signup-username">Username</label>
               <input
@@ -82,8 +106,8 @@ const Signup = ({ onSignupSuccess }) => {
                 name="username"
                 type="text"
                 placeholder="Enter your username"
-                value={formData.username}
-                onChange={handleChange}
+                value={username}
+                onChange={handleUsernameChange}
                 className={errors.username ? "input-error" : ""}
               />
               {errors.username ? (
@@ -96,8 +120,8 @@ const Signup = ({ onSignupSuccess }) => {
                 name="phone"
                 type="text"
                 placeholder="Enter your phone number"
-                value={formData.phone}
-                onChange={handleChange}
+                value={phone}
+                onChange={handlePhoneChange}
                 className={errors.phone ? "input-error" : ""}
               />
               {errors.phone ? (
@@ -110,8 +134,8 @@ const Signup = ({ onSignupSuccess }) => {
                 name="location"
                 type="text"
                 placeholder="Enter your location"
-                value={formData.location}
-                onChange={handleChange}
+                value={location}
+                onChange={handleLocationChange}
                 className={errors.location ? "input-error" : ""}
               />
               {errors.location ? (
@@ -124,8 +148,8 @@ const Signup = ({ onSignupSuccess }) => {
                 name="password"
                 type="password"
                 placeholder="Create a password"
-                value={formData.password}
-                onChange={handleChange}
+                value={password}
+                onChange={handlePasswordChange}
                 className={errors.password ? "input-error" : ""}
               />
               {errors.password ? (
@@ -137,6 +161,7 @@ const Signup = ({ onSignupSuccess }) => {
           </div>
         </section>
 
+        {/* Right illustration section */}
         <section className="signup-right">
           <img
             src={signupIllustration}
