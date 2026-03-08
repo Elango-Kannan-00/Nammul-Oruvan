@@ -3,56 +3,64 @@ import "./Login.css";
 import loginIllustration from "../../assets/illustrations/Login.jpg";
 
 const Login = ({ onSignupClick }) => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+  // Form field states
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  
+  // Validation error state
   const [errors, setErrors] = useState({});
 
-  const validate = (values) => {
+  // Handle username input change
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+    if (errors.username) setErrors((prev) => ({ ...prev, username: "" }));
+  };
+
+  // Handle password input change
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+    if (errors.password) setErrors((prev) => ({ ...prev, password: "" }));
+  };
+
+  // Handle form submit and run simple validation
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const nextErrors = {};
 
-    if (!values.username.trim()) {
+    // Username validation block
+    if (!username.trim()) {
       nextErrors.username = "Username is required.";
-    } else if (values.username.trim().length < 3) {
+    } else if (username.trim().length < 3) {
       nextErrors.username = "Username must be at least 3 characters.";
     }
 
-    if (!values.password.trim()) {
+    // Password validation block
+    if (!password.trim()) {
       nextErrors.password = "Password is required.";
-    } else if (values.password.length < 8) {
+    } else if (password.length < 6) {
       nextErrors.password = "Password must be at least 6 characters.";
     }
 
-    return nextErrors;
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const nextErrors = validate(formData);
-    setErrors(nextErrors);
-
+    // Stop submit if validation fails
     if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
       return;
     }
+
+    // Clear errors and continue login flow
+    setErrors({});
 
     // TODO: call login API here.
   };
 
+  // Login page UI
   return (
     <div className="login-page">
       <h1 className="login-page-title">Login to Find Nammul-Oruvan</h1>
 
+      {/* Main content wrapper */}
       <div className="login-content">
+        {/* Left illustration section */}
         <section className="login-left">
           <img
             src={loginIllustration}
@@ -61,9 +69,11 @@ const Login = ({ onSignupClick }) => {
           />
         </section>
 
+        {/* Right form section */}
         <section className="login-right">
           <div className="login-form-card">
             <h2 className="login-card-title">Login</h2>
+            {/* Login form block */}
             <form className="login-form" onSubmit={handleSubmit}>
               <label htmlFor="username">Username</label>
               <input
@@ -71,8 +81,8 @@ const Login = ({ onSignupClick }) => {
                 name="username"
                 type="text"
                 placeholder="Enter your username"
-                value={formData.username}
-                onChange={handleChange}
+                value={username}
+                onChange={handleUsernameChange}
                 className={errors.username ? "input-error" : ""}
               />
               {errors.username ? (
@@ -85,8 +95,8 @@ const Login = ({ onSignupClick }) => {
                 name="password"
                 type="password"
                 placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleChange}
+                value={password}
+                onChange={handlePasswordChange}
                 className={errors.password ? "input-error" : ""}
               />
               {errors.password ? (
@@ -95,6 +105,8 @@ const Login = ({ onSignupClick }) => {
 
               <button type="submit">Login</button>
             </form>
+
+            {/* Signup navigation block */}
             <h3>
               Don&apos;t have Account -
               <button
