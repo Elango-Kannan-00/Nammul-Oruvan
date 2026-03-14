@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import loginIllustration from "../../assets/illustrations/Login.jpg";
 
-const Login = ({ onSignupClick }) => {
+const Login = ({ onSignupClick, onLoginSuccess }) => {
   // Form field states
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -51,6 +51,9 @@ const Login = ({ onSignupClick }) => {
     setErrors({});
 
     // TODO: call login API here.
+    if (onLoginSuccess) {
+      onLoginSuccess();
+    }
   };
 
   // Login page UI
