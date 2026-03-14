@@ -5,6 +5,7 @@ import electriciansImage from '../../assets/illustrations/Electrican.jpg'
 import plumbersImage from '../../assets/illustrations/Plumber.jpg'
 import carpentersImage from '../../assets/illustrations/Carpenter.jpg'
 import appliancesImage from '../../assets/illustrations/Appliances.jpg'
+import mechanicImage from '../../assets/illustrations/Mechanic.jpg'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
               <HomeCard title='Plumbers' count='300+' imageSrc={plumbersImage} />
               <HomeCard title='Carpenters' count='250+' imageSrc={carpentersImage} />
               <HomeCard title='Appliances' count='150+' imageSrc={appliancesImage} />
+              <HomeCard title='Mechanic' count='150+' imageSrc={mechanicImage} />
             </div>
         </div>
     </div>
