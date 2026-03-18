@@ -194,7 +194,6 @@ select.filter-input option:checked {
   border: 2px solid rgba(31, 42, 68, 0.1);
   display: grid;
   place-items: center;
-  position: relative;
 }
 
 .modal-carousel img {
