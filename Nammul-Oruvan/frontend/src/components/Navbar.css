@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 42px;
-  background: linear-gradient(135deg, #f7f3e9 0%, #e9f2ff 100%);
+  background: #111827;
   /* backdrop-filter: blur(10px); */
   border-bottom: 1px solid rgba(30, 42, 68, 0.08);
   box-shadow: 0 5px 20px rgba(31, 42, 68, 0.12);
@@ -30,12 +30,6 @@
   letter-spacing: 0.5px;
 }
 
-.app-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1f2a44;
-}
-
 .navbar-right {
   display: flex;
   align-items: center;
@@ -45,18 +39,18 @@
 .nav-link {
   border: none;
   background: transparent;
-  color: #1f2a44;
+  color: white;
   font-weight: 600;
   font-size: 16px;
   padding: 8px 10px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 160ms ease, color 160ms ease;
+  transition: 160ms ease, color 3s ease;
 }
 
 .nav-link:hover {
-  background: rgba(249, 115, 22, 0.12);
-  color: #f97316;
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  color: white;
 }
 
 .profile-wrapper {

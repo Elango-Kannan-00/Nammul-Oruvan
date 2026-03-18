@@ -48,7 +48,6 @@ const Navbar = ({ user = defaultUser }) => {
         <div className='app-icon'>
           <span>NO</span>
         </div>
-        <span className='app-name'>Nammul Oruvan</span>
       </div>
 
       <div className='navbar-right'>
