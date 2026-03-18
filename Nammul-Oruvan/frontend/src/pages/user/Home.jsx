@@ -1,6 +1,7 @@
 import React from 'react'
 import HomeCard from '../../components/HomeCard'
 import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 import './Home.css'
 import electriciansImage from '../../assets/illustrations/Electrican.jpg'
 import plumbersImage from '../../assets/illustrations/Plumber.jpg'
@@ -41,6 +42,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
