@@ -8,7 +8,7 @@ import carpentersImage from '../../assets/illustrations/Carpenter.jpg'
 import appliancesImage from '../../assets/illustrations/Appliances.jpg'
 import mechanicImage from '../../assets/illustrations/Mechanic.jpg'
 import mainOneImage from '../../assets/illustrations/Main1.jpg'
-import mainTwoImage from '../../assets/illustrations/Main2.jpg'
+import masonImage from '../../assets/illustrations/Mason.jpg'
 
 const Home = () => {
   return (
@@ -29,15 +29,15 @@ const Home = () => {
             <p>Book electricians, plumbers, carpenters, and other skilled workers in minutes.</p>
           </div>
           <div className='home-illustrations'>
-            <img src={mainOneImage} alt='Main illustration 1' />
-            <img src={mainTwoImage} alt='Main illustration 2' />
+            <img src={mainOneImage} alt='Main illustration' />
           </div>
           <div className='home-cards'>
             <HomeCard title='Electricians' count='500+' imageSrc={electriciansImage} />
             <HomeCard title='Plumbers' count='300+' imageSrc={plumbersImage} />
             <HomeCard title='Carpenters' count='250+' imageSrc={carpentersImage} />
-            <HomeCard title='Appliances' count='150+' imageSrc={appliancesImage} />
-            <HomeCard title='Mechanic' count='150+' imageSrc={mechanicImage} />
+            <HomeCard title='Electronics Technicians' count='150+' imageSrc={appliancesImage} />
+            <HomeCard title='Mechanics' count='150+' imageSrc={mechanicImage} />
+            <HomeCard title='Masons' count='150+' imageSrc={masonImage} />
           </div>
         </div>
       </div>
