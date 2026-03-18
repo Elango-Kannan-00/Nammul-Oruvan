@@ -26,7 +26,7 @@ const Home = () => {
         <div className='home-content'>
           <h1 className='home-title'>Nammul Oruvan</h1>
           <div className='home-subtext'>
-            <p>Find Trusted Workers Near You</p>
+            <p>Find Trusted Workers Near You!</p>
             <p>Book electricians, plumbers, carpenters, and other skilled workers in minutes.</p>
           </div>
           <div className='home-illustrations'>
