@@ -11,10 +11,12 @@ import mechanicImage from '../../assets/illustrations/Mechanic.jpg'
 import mainOneImage from '../../assets/illustrations/Main1.jpg'
 import masonImage from '../../assets/illustrations/Mason.jpg'
 
-const Home = () => {
+const Home = ({ onServicesClick }) => {
   return (
     <div className='home-page'>
       <Navbar
+        onHomeClick={null}
+        onServicesClick={onServicesClick}
         user={{
           name: 'Arun Kumar',
           email: 'arun.kumar@email.com',
@@ -48,7 +50,7 @@ const Home = () => {
             <HomeCard title='Masons' count='150+' imageSrc={masonImage} />
           </div>
           <div className='search-button'>
-            <button className='btn'>Search Workers</button>
+            <button className='btn' onClick={onServicesClick}>Search Workers</button>
           </div>
         </div>
       </div>
