@@ -45,6 +45,31 @@
   border-radius: 0;
 }
 
+.userStats {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 12px 0 32px;
+  width: 100%;
+}
+
+.userStats h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #1f2a44;
+  font-weight: 700;
+}
+
+.userStats span {
+  margin: 0 6px;
+}
+
+.userStats-number {
+  color: #f97316;
+  font-size: 42px;
+  font-weight: 800;
+}
+
 .home-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1.2fr));
@@ -63,7 +88,7 @@
   box-shadow: 0 14px 30px rgba(31, 42, 68, 0.12);
   border: 1px solid rgba(31, 42, 68, 0.08);
   padding: 24px 18px;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 180ms ease-out, box-shadow 180ms ease;
 }
 
 .card:hover {
@@ -97,6 +122,28 @@
   color: #1f2a44;
   margin: 0;
   font-weight: 600;
+}
+
+.search-button {
+  margin-top: 100px;
+  margin-left: 550px;
+}
+
+.btn {
+  padding: 20px;
+  background-color: #f97316;
+  border-radius: 4px;
+  border-color: 1px solid grey;
+  color: white;
+  font-size: 17px;
+  border-style: none;
+  font-weight: 650;
+  transition: transform 180ms ease-out;
+}
+
+.btn:hover{
+  cursor: pointer;
+  transform: scale(1.04);
 }
 
 @media (max-width: 640px) {

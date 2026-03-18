@@ -32,6 +32,13 @@ const Home = () => {
           <div className='home-illustrations'>
             <img src={mainOneImage} alt='Main illustration' />
           </div>
+          <div className='userStats'>
+            <h1>
+              Trusted by <span className='userStats-number'>3000+</span>
+              <span>Users</span> and <span className='userStats-number'>1000+</span>
+              <span>Workers</span>
+            </h1>
+          </div>
           <div className='home-cards'>
             <HomeCard title='Electricians' count='500+' imageSrc={electriciansImage} />
             <HomeCard title='Plumbers' count='300+' imageSrc={plumbersImage} />
@@ -39,6 +46,9 @@ const Home = () => {
             <HomeCard title='Electronics Technicians' count='150+' imageSrc={appliancesImage} />
             <HomeCard title='Mechanics' count='150+' imageSrc={mechanicImage} />
             <HomeCard title='Masons' count='150+' imageSrc={masonImage} />
+          </div>
+          <div className='search-button'>
+            <button className='btn'>Search Workers</button>
           </div>
         </div>
       </div>
