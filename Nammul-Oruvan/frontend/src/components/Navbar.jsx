@@ -8,7 +8,7 @@ const defaultUser = {
   location: 'Coimbatore, TN'
 }
 
-const Navbar = ({ user = defaultUser }) => {
+const Navbar = ({ user = defaultUser, onHomeClick, onServicesClick }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false)
   const profileRef = useRef(null)
 
@@ -51,10 +51,10 @@ const Navbar = ({ user = defaultUser }) => {
       </div>
 
       <div className='navbar-right'>
-        <button type='button' className='nav-link'>
+        <button type='button' className='nav-link' onClick={onHomeClick}>
           Home
         </button>
-        <button type='button' className='nav-link'>
+        <button type='button' className='nav-link' onClick={onServicesClick}>
           Services
         </button>
         <button type='button' className='nav-link'>
